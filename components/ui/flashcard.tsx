@@ -1,0 +1,1 @@
+//turn flash into ternary 
