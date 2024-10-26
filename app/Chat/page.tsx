@@ -22,6 +22,26 @@ export default function Page() {
   const [hasVideo, setHasVideo] = useState(false)
   const [videoFile, setVideoFile] = useState<File | null>(null)
   const chatContainerRef = useRef<HTMLDivElement>(null)
+
+    async function Chat(){
+      const res = await fetch('http://localhost:5000/chat',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+  
+        },
+        body: JSON.stringify({
+          prompt: currentMessage,
+          style: 'sarcastic',
+          index: 'chiron2'
+        })
+      })
+      const data = await res.json()
+      setIsLoading(false)
+      setMessages((prev) => [...prev, data])
+      console.log(data)
+    }
+  
   
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -64,36 +84,7 @@ export default function Page() {
     setMessages(prev => [...prev, newMessage])
     setCurrentMessage('')
     setIsLoading(true)
-
-    try {
-      const response = await fetch('YOUR_API_ENDPOINT/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: currentMessage,
-          videoId: hasVideo ? videoFile?.name : null,
-        }),
-      })
-
-      if (!response.ok) throw new Error('Failed to get response')
-
-      const data = await response.json()
-      
-      const aiResponse: Message = {
-        id: Date.now().toString(),
-        content: data.response,
-        isAi: true,
-        timestamp: new Date(),
-      }
-
-      setMessages(prev => [...prev, aiResponse])
-    } catch (error) {
-      console.error('Error sending message:', error)
-    } finally {
-      setIsLoading(false)
-    }
+    Chat()
   }
 
   return (

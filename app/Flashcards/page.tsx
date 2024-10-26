@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Sidebar } from '@/components/ui/sidebar'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -31,7 +31,18 @@ export default function Page() {
     setFlippedCards(new Array(newFlashcards.length).fill(false))
     setIsCreating(false)
   }
-
+  const getFlashCards = async () => {
+    const res = await fetch('http://localhost:5000/flashcards',{
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const data = await res.json()
+    console.log(data)
+    setFlashcards(data.flashcards)
+    setIsCreating(false)
+  }
   const toggleFlip = (index: number) => {
     setFlippedCards(prev => {
       const newFlipped = [...prev]
@@ -93,7 +104,7 @@ export default function Page() {
                     <SelectItem value="custom">Custom Input</SelectItem>
                   </SelectContent>
                 </Select>
-                <Button onClick={handleCreateFlashcards} disabled={!prompt && !dataSource}>
+                <Button onClick={() => getFlashCards()}>
                   Generate Flashcards
                 </Button>
               </CardContent>
