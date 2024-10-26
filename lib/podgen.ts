@@ -2,12 +2,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 import axios from 'axios';
 const ELEVEN_LABS_API_KEY = process.env.ELEVEN_LABS_API_KEY;
-//"sk_70f0ff2a015d1fbf7e68aa81dfac65a80d2c1cbcaae83a68"
-//process.env.ELEVEN_LABS_API_KEY;
+
 const ELEVEN_LABS_VOICE_ID = 'Yko7PKHZNXotIFUBG7I9';
 const OPENAI_API_KEY =process.env.OPENAI_API_KEY;
-//"sk-kpwL5LjA4ojG8TwNXKK7LfgAUNbiawmfBoD6njkmLFT3BlbkFJyJcYI-xd-FCUqaTsNHWsIFRpqK6RXkR1ezHFkHOKAA"
-//process.env.OPENAI_API_KEY;
+
 
 console.log('ELEVEN_LABS_API_KEY:', ELEVEN_LABS_API_KEY);
 console.log('OPENAI_API_KEY:', OPENAI_API_KEY);
