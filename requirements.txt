@@ -1,0 +1,6 @@
+boto3
+pinecone
+openai
+flask
+requests
+flask_cors
