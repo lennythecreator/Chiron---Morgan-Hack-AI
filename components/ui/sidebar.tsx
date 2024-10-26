@@ -10,7 +10,7 @@ export function Sidebar() {
     { icon: Home, label: 'Dashboard', route: '/Dashboard' },
     { icon: MessageSquare, label: 'Chats', route: '/Chat' },
     { icon: Search, label: 'Search', route: '/search' },
-    { icon: Music, label: 'Podcasts', route: '/podcasts' },
+    { icon: Music, label: 'Podcasts', route: '/Podcasts' },
     { icon: Notebook, label: 'Flash Cards', route: '/Flashcards' },
     { icon: Settings, label: 'Settings', route: '/settings' },
   ]
