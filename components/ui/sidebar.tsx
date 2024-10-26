@@ -11,7 +11,7 @@ export function Sidebar() {
     { icon: MessageSquare, label: 'Chats', route: '/Chat' },
     { icon: Search, label: 'Search', route: '/search' },
     { icon: Music, label: 'Podcasts', route: '/podcasts' },
-    { icon: Notebook, label: 'Flash Cards', route: '/flashcards' },
+    { icon: Notebook, label: 'Flash Cards', route: '/Flashcards' },
     { icon: Settings, label: 'Settings', route: '/settings' },
   ]
 

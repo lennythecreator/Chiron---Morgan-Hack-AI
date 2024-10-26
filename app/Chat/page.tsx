@@ -15,12 +15,12 @@ export default function page() {
         <main className="flex-1 flex flex-col rounded-xl m-4 bg-white text-slate-700">
           <header className="flex justify-between items-center p-4 border-b border-gray-400">
             <h1 className="text-xl font-semibold">Chat</h1>
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="icon">
-                <Star className="h-4 w-4" />
+            <div className="flex items-center space-x-2">
+              <Button variant="ghost">
+                New Chat <MessageCircle className="h-4 w-4" />
               </Button>
               <Button variant="ghost" size="icon">
-                <MessageCircle className="h-4 w-4" />
+                <Star className="h-4 w-4" />
               </Button>
               <Button variant="ghost" size="icon">
                 <Share className="h-4 w-4" />
